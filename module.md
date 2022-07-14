@@ -16,8 +16,7 @@ scriptタグを書く際に **type="module"** と記述するとモジュール�
 
 <br>
 
- named export / import
- ***
+## named export / import
 
 <br>
 
@@ -34,8 +33,10 @@ export { name };
 ```js
 ---- index.js ----
 
-import { name, }  from "./user.js";
+import { name } from "./user.js";
 ```
+
+<br>
 
 - 変数 : 複数まとめて export
 
@@ -51,8 +52,10 @@ export { name, name2 };
 ```js
 ---- index.js ----
 
-import { name, name2 }  from "./user.js";
+import { name, name2 } from "./user.js";
 ```
+
+<br>
 
 - 変数 : 宣言と同時に export
   
@@ -68,8 +71,10 @@ export { name, name2 };
 ```js
 ---- index.js ----
 
-import { name, name2 }  from "./user.js";
+import { name, name2 } from "./user.js";
 ```
+
+<br>
 
 - 関数 : 複数まとめて export
 
@@ -87,8 +92,10 @@ export { name, log };
 ```js
 ---- index.js ----
 
-import { name, log }  from "./user.js";
+import { name, log } from "./user.js";
 ```
+
+<br>
 
 - 関数 : 宣言と同時に export
   
@@ -103,5 +110,50 @@ export function log(value) {
 ```js
 ---- index.js ----
 
-import { log }  from "./user.js";
+import { log } from "./user.js";
+```
+
+<br>
+
+## - エイリアス -
+エイリアスとは、別名という意味。
+<br>
+識別子に **as** とつけてその後に別名を付けることができる。
+<br>
+一般的には import でのエイリアスが多い。
+
+<br>
+
+- named export でのエイリアス
+
+```js
+---- user.js ----
+
+const name = "山本";
+
+export { name as yama };
+```
+
+```js
+---- index.js ----
+
+import  { yama } from "./user.js";
+```
+
+<br>
+
+- named import でのエイリアス
+
+```js
+---- user.js ----
+
+const name = "山本";
+
+export { name };
+```
+
+```js
+---- index.js ----
+
+import  { name as yama } from "./user.js";
 ```
