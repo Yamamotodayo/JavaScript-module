@@ -16,6 +16,9 @@ scriptタグを書く際に **type="module"** と記述するとモジュール�
 
 <br>
 
+<details>
+<summary>named export / import</summary>
+
 ## named export / import
 
 <br>
@@ -82,7 +85,7 @@ import { name, name2 } from "./user.js";
 ---- user.js ----
 
 function log(value) {
-    log(value);
+    console.log(value);
 }
 const name = "山本";
 
@@ -103,7 +106,7 @@ import { name, log } from "./user.js";
 ---- user.js ----
 
 export function log(value) {
-    log(value);
+    console.log(value);
 }
 ```
 
@@ -157,3 +160,56 @@ export { name };
 
 import  { name as yama } from "./user.js";
 ```
+
+</details>
+
+<details>
+<summary>default export / import</summary>
+
+## default export / import
+<br>
+export default では1モジュールに対して1回しか使えない。
+<br>
+import では { } で囲わずに記述する。
+
+<br>
+<br>
+
+- 変数 : export default
+
+```js
+---- user.js ----
+
+const name = "山本";
+
+export default name;
+```
+
+```js
+---- index.js ----
+
+import name from "./user.js";
+```
+
+<br>
+
+- 関数 : 宣言と同時に export
+<br>
+宣言と同時に exportできるのは関数のみ。定数を宣言と同時に export するとエラーになる。
+<br>
+```js
+---- user.js ----
+
+const log = function() {
+    console.log()
+}
+
+export default log;
+```
+
+```js
+---- index.js ----
+
+import log from "./user.js";
+```
+</details>
