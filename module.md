@@ -197,6 +197,7 @@ import name from "./user.js";
 <br>
 宣言と同時に exportできるのは関数のみ。定数を宣言と同時に export するとエラーになる。
 <br>
+
 ```js
 ---- user.js ----
 
